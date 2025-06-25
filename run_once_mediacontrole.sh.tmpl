@@ -1,0 +1,75 @@
+{{- if eq .chezmoi.os "darwin" -}}
+
+#!/bin/bash
+
+DAEMON_NAME="media-control-mtmr"
+SCRIPT_NAME="${DAEMON_NAME}_script"
+PLIST_NAME="com.${USER}.${DAEMON_NAME}.plist"
+SCRIPT_PATH="${HOME}/${SCRIPT_NAME}"
+PLIST_PATH="${HOME}/Library/LaunchAgents/${PLIST_NAME}"
+OUTPUT_TITLE_ARTIST_FILE="/tmp/${DAEMON_NAME}_title_artist.txt"
+OUTPUT_IMG_FILE="/tmp/${DAEMON_NAME}_img.jpeg"
+OUTPUT_ITER_FILE="/tmp/${DAEMON_NAME}_iter.txt"
+
+AGENT_STDOUT_LOG="/tmp/${DAEMON_NAME}.stdout.log"
+AGENT_STDERR_LOG="/tmp/${DAEMON_NAME}.stderr.log"
+
+cat <<EOF > "${SCRIPT_PATH}.sh"
+#!/bin/bash
+export ITER="img1"
+export TITLE=""
+export OLD_TITLE=""
+while true; do
+    TEMP_JSON_FILE=\$(mktemp)
+    /opt/homebrew/bin/media-control get > "\${TEMP_JSON_FILE}" 
+
+    jq -r '.title + " - " + .artist' "\${TEMP_JSON_FILE}" > "${OUTPUT_TITLE_ARTIST_FILE}"
+    jq -r '.artworkData' "\${TEMP_JSON_FILE}" | base64 -d > "${OUTPUT_IMG_FILE}"
+
+    if [ "\$ITER" == "img2" ]; then
+	export ITER=img1
+    else
+        export ITER=img2
+    fi
+
+    if [ "\$TITLE" != "\$OLD_TITLE" ]; then
+        echo "\$ITER" > "${OUTPUT_ITER_FILE}"
+    fi
+
+    export OLD_TITLE="\$TITLE"
+    export TITLE="\$(jq -r '.title' \${TEMP_JSON_FILE})"
+
+    sleep 1
+done
+EOF
+
+chmod +x "${SCRIPT_PATH}.sh"
+
+mkdir -p "${HOME}/Library/LaunchAgents"
+cat <<EOF > "${PLIST_PATH}"
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.${USER}.${DAEMON_NAME}</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>${SCRIPT_PATH}.sh</string>
+    </array>
+    <key>KeepAlive</key>
+    <true/>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>StandardOutPath</key>
+    <string>${AGENT_STDOUT_LOG}</string>
+    <key>StandardErrorPath</key>
+    <string>${AGENT_STDERR_LOG}</string>
+</dict>
+</plist>
+EOF
+
+launchctl unload "${PLIST_PATH}" 2>/dev/null
+launchctl load "${PLIST_PATH}"
+
+{{ end -}}

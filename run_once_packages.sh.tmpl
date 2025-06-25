@@ -1,5 +1,6 @@
 {{- if eq .chezmoi.os "darwin" -}}
 #!/bin/bash
+brew tap ungive/media-control
 
 brew bundle --file=/dev/stdin <<EOF
 brew "git"
@@ -10,6 +11,7 @@ brew "starship"
 brew "koekeishiya/formulae/skhd"
 brew "tailscale"
 brew "bitwarden-cli"
+brew "media-control"
 cask "eloston-chromium"
 cask "signal"
 cask "ghostty"
