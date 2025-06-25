@@ -1,0 +1,36 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+
+defaults write -g NSWindowShouldDragOnGesture -bool true # CMD and hold to drag
+
+#make the dock appear instantly
+defaults write com.apple.dock autohide-time-modifier -float 0  
+defaults write com.apple.dock autohide-delay -int 0          
+
+# date for screenshots
+defaults write com.apple.screencapture "include-date" -bool "true"
+#Save to downloads
+defaults write com.apple.screencapture "location" -string "~/Downloads" 
+
+# Finder
+defaults write NSGlobalDomain "AppleShowAllExtensions" -bool "true"
+defaults write com.apple.finder "AppleShowAllFiles" -bool "true"
+defaults write com.apple.finder "_FXSortFoldersFirst" -bool "true"
+defaults write com.apple.finder "FXDefaultSearchScope" -string "SCcf"
+defaults write com.apple.finder "FXEnableExtensionChangeWarning" -bool "false"
+
+# Mouse accel (after restart)
+defaults write NSGlobalDomain com.apple.mouse.linear -bool "true"
+
+# Spaces
+defaults write com.apple.dock "mru-spaces" -bool "false"
+defaults write com.apple.spaces "spans-displays" -bool "true" 
+
+defaults write com.apple.LaunchServices "LSQuarantine" -bool "false"
+
+
+killall SystemUIServer
+killall Finder
+killall Dock
+
+{{ end -}}
