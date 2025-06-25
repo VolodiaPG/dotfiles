@@ -1,0 +1,25 @@
+[alias]
+        lg = "log --color --graph --pretty=tformat:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+
+[commit]
+        gpgSign = true
+
+[core]
+        editor = "nvim"
+
+[gpg]
+        format = "ssh"
+
+[init]
+        defaultBranch = "main"
+
+[rebase]
+        autostash = true
+
+[tag]
+        gpgSign = true
+
+[user]
+        email = "volodia.parol-guarino@proton.me"
+        name = "Volodia P.-G."
+        signingKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGCpqTjWHv8bko3N+ypMJXcSBDPKtun7Ec7RHvtlC60V"
