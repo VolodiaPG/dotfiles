@@ -25,7 +25,11 @@ defaults write NSGlobalDomain com.apple.mouse.linear -bool "true"
 defaults write com.apple.dock "mru-spaces" -bool "false"
 defaults write com.apple.spaces "spans-displays" -bool "true" 
 
+# No quarantine messages
 defaults write com.apple.LaunchServices "LSQuarantine" -bool "false"
+
+# Trackpad force required
+defaults write com.apple.AppleMultitouchTrackpad "FirstClickThreshold" -int "0"
 
 
 killall SystemUIServer
