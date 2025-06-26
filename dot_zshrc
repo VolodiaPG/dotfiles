@@ -99,6 +99,7 @@ plugins=(git)
 
 eval "$(starship init zsh)"
 
+export TERM=xterm-256color
 
 alias cm="BW_SESSION=\$(bw unlock --raw) chezmoi"  
 alias c="clear"
