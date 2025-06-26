@@ -17,7 +17,7 @@
                         ]
                     },
                     {
-                        "description": "Custom Symbol Macros for AZERTY: é=[, \"={, '=(, 5=', 6=\", 7=), 8=}, 9=], option+8=! (Ghostty Only)",
+                        "description": "Custom Symbol Macros for AZERTY: é=[, quote={, '=(, 5=', 6=quote, 7=), 8=}, 9=], option+8=! (Ghostty Only)",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -29,8 +29,7 @@
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "2",
-                                    "modifiers": { "optional": ["any"] }
+                                    "key_code": "2"
                                 },
                                 "to": [
                                     {
@@ -50,8 +49,7 @@
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "3",
-                                    "modifiers": { "optional": ["any"] }
+                                    "key_code": "3"
                                 },
                                 "to": [
                                     {
@@ -71,8 +69,7 @@
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "4",
-                                    "modifiers": { "optional": ["any"] }
+                                    "key_code": "4"
                                 },
                                 "to": [{ "key_code": "5" }],
                                 "type": "basic"
@@ -87,8 +84,7 @@
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "5",
-                                    "modifiers": { "optional": ["any"] }
+                                    "key_code": "5"
                                 },
                                 "to": [{ "key_code": "4" }],
                                 "type": "basic"
@@ -103,8 +99,7 @@
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "6",
-                                    "modifiers": { "optional": ["any"] }
+                                    "key_code": "6"
                                 },
                                 "to": [{ "key_code": "3" }],
                                 "type": "basic"
@@ -119,8 +114,7 @@
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "7",
-                                    "modifiers": { "optional": ["any"] }
+                                    "key_code": "7"
                                 },
                                 "to": [{ "key_code": "hyphen" }],
                                 "type": "basic"
@@ -135,8 +129,7 @@
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "8",
-                                    "modifiers": { "optional": ["any"] }
+                                    "key_code": "8"
                                 },
                                 "to": [
                                     {
@@ -156,8 +149,7 @@
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "9",
-                                    "modifiers": { "optional": ["any"] }
+                                    "key_code": "9"
                                 },
                                 "to": [
                                     {
@@ -177,13 +169,11 @@
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "8",
-                                    "modifiers": { "optional": ["any"] }
+                                    "key_code": "0"
                                 },
                                 "to": [
                                     {
-                                        "key_code": "8",
-                                        "modifiers": ["left_shift"]
+                                        "key_code": "8"
                                     }
                                 ],
                                 "type": "basic"
