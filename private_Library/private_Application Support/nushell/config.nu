@@ -20,8 +20,6 @@
 
  def lsd [] { ls | where type == dir }
 
- def c [] { clear }
-
  $env.PATH = ($env.PATH |
  split row (char esep) |
  prepend /home/myuser/.apps |
@@ -30,3 +28,10 @@
 
 mkdir ($nu.data-dir | path join "vendor/autoload")
 starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
+zoxide init nushell | save -f ~/.zoxide.nu
+source ~/.zoxide.nu
+
+alias __builtin_cd = cd
+alias cd = z
+alias c = clear
+
