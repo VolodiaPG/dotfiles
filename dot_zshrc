@@ -66,7 +66,7 @@
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/                         # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+#plugins=(git)
 
 #source $ZSH/oh-my-zsh.sh
                                                                               # User configuration
@@ -97,7 +97,7 @@ plugins=(git)
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-eval "$(starship init zsh)"
+#eval "$(starship init zsh)"
 
 export TERM=xterm-256color
 
@@ -105,3 +105,5 @@ alias cm="BW_SESSION=\$(bw unlock --raw) chezmoi"
 alias c="clear"
 alias g="git"
 export SSH_AUTH_SOCK=/Users/volodia/.bitwarden-ssh-agent.sock
+
+exec nu
