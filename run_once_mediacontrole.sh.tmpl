@@ -15,35 +15,59 @@ AGENT_STDOUT_LOG="/tmp/${DAEMON_NAME}.stdout.log"
 AGENT_STDERR_LOG="/tmp/${DAEMON_NAME}.stderr.log"
 
 cat <<EOF > "${SCRIPT_PATH}.sh"
-#!/bin/bash
-export ITER="img1"
-export TITLE=""
-export OLD_TITLE=""
-while true; do
-    TEMP_JSON_FILE=\$(mktemp)
-    /opt/homebrew/bin/media-control get > "\${TEMP_JSON_FILE}" 
+#!/opt/homebrew/bin/nu
+# Set initial environment variables
+\$env.OUTPUT_TITLE_ARTIST_FILE = "${OUTPUT_TITLE_ARTIST_FILE}"
+\$env.OUTPUT_IMG_FILE = "${OUTPUT_IMG_FILE=}"
+\$env.OUTPUT_ITER_FILE = "${OUTPUT_ITER_FILE=}"
+\$env.ITER = "img1"
+\$env.TITLE = ""
+\$env.OLD_TITLE = ""
 
-    jq -r '.title + " - " + .artist' "\${TEMP_JSON_FILE}" > "${OUTPUT_TITLE_ARTIST_FILE}"
-    jq -r '.artworkData' "\${TEMP_JSON_FILE}" | base64 -d > "${OUTPUT_IMG_FILE}"
+mut title = ""
+mut oldtitle = ""
+mut artist = ""
+mut art = ""
 
-    if [ "\$ITER" == "img2" ]; then
-	export ITER=img1
-    else
-        export ITER=img2
-    fi
+loop {
+    let content = (/opt/homebrew/bin/media-control get | from json)
 
-    if [ "\$TITLE" != "\$OLD_TITLE" ]; then
-        echo "\$ITER" > "${OUTPUT_ITER_FILE}"
-    fi
+    if (\$content | is-not-empty) {
+       \$title = (\$content | get title)
+       \$artist = (\$content | get artist)
+       \$art = (\$content | get artworkData)
 
-    export OLD_TITLE="\$TITLE"
-    export TITLE="\$(jq -r '.title' \${TEMP_JSON_FILE})"
+       \$art | decode base64 | save -f \$env.OUTPUT_IMG_FILE
 
-    sleep 1
-done
+       if (\$title != "") {
+           \$"(\$title) - (\$artist)" | save -f \$env.OUTPUT_TITLE_ARTIST_FILE
+       } else {
+           "" | save -f \$env.OUTPUT_TITLE_ARTIST_FILE
+       }
+
+       if (\$env.ITER == "img2") {
+           \$env.ITER = "img1"
+       } else {
+           \$env.ITER = "img2"
+       }
+
+       if (\$title != \$oldtitle) {
+           \$"(\$env.ITER)" | save -f \$env.OUTPUT_ITER_FILE
+       }
+
+       \$oldtitle = \$title
+    } else {
+           "" | save -f \$env.OUTPUT_TITLE_ARTIST_FILE
+           "" | save -f \$env.OUTPUT_IMG_FILE
+    }
+
+    sleep 1sec
+}
 EOF
 
 chmod +x "${SCRIPT_PATH}.sh"
+
+
 
 mkdir -p "${HOME}/Library/LaunchAgents"
 cat <<EOF > "${PLIST_PATH}"
