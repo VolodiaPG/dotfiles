@@ -20,6 +20,8 @@
 
  def lsd [] { ls | where type == dir }
 
+ def c [] { clear }
+
  $env.PATH = ($env.PATH |
  split row (char esep) |
  prepend /home/myuser/.apps |
