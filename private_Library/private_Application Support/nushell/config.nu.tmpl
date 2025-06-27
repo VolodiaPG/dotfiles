@@ -46,7 +46,7 @@ starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.n
 zoxide init nushell | save -f ~/.zoxide.nu
 source ~/.zoxide.nu
 
-$env.OPENROUTER_API_KEY={{ (bitwarden "item" "OpenRouter key").login.password }}
+$env.OPENROUTER_API_KEY = "{{ (bitwarden "item" "OpenRouter key").login.password }}"
 
 alias __builtin_cd = cd
 alias cd = z
