@@ -49,4 +49,5 @@ source ~/.zoxide.nu
 alias __builtin_cd = cd
 alias cd = z
 alias c = clear
+alias gm = git commit -m
 
