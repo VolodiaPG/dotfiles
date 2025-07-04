@@ -48,6 +48,9 @@ source ~/.zoxide.nu
 
 $env.OPENROUTER_API_KEY = "{{ (bitwarden "item" "OpenRouter key").login.password }}"
 
+# Fix for mosh
+$env.LC_ALL = "C.UTF-8"
+
 alias __builtin_cd = cd
 alias cd = z
 alias c = clear
