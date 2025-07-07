@@ -1,0 +1,4 @@
+Host dell
+    Hostname dell
+    User volodia
+    ForwardAgent yes

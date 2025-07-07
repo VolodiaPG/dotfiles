@@ -3,6 +3,8 @@
 brew tap ungive/media-control
 
 brew bundle --file=/dev/stdin <<EOF
+tap "koekeishiya/formulae"
+
 brew "git"
 brew "syncthing"
 brew "koekeishiya/formulae/yabai"
@@ -38,5 +40,8 @@ cask "container"
 cask "bambu-studio"
 cask "obsidian"
 cask "zotero"
+cask "qbittorrent"
+cask "unified-remote"
+cask "vlc"
 EOF
 {{ end -}}

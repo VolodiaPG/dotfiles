@@ -7,6 +7,11 @@
 # see this wiki page for information:
 #  - https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)#configure-scripting-addition
 #
+# In order to prevent simple-bar freezing upon yabai restart, you'll need to add
+# this line at the start of your .yabairc file
+# https://www.jeantinland.com/toolbox/simple-bar/documentation/installation/#update-your-yabai-config
+#osascript -e 'tell application id "tracesOf.Uebersicht" to refresh'
+
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 sudo yabai --load-sa
 #
@@ -65,7 +70,7 @@ yabai -m rule --add app="^Legcord$" space=social
 yabai -m rule --add app="^Zotero$" space=bib
 yabai -m rule --add app="^Calendar$" space=mail
 yabai -m rule --add app="^Neovide$" space=code
-yabai -m rule --add app="^(Calculator|System Preferences|Archive Utility)$" manage=off
+yabai -m rule --add app="^(Calculator|System Settings|Archive Utility)$" manage=off
 
 # # specific space settings
 # yabai -m config --space mail layout stack
@@ -107,5 +112,8 @@ yabai -m signal --add app='^Ghostty$' event=window_destroyed action='yabai -m sp
 # # everything listed gets sent to below layer to prevent
 # # them from covering floating applications/popup windows
 # yabai -m rule --add app="^${applications}$" manage=on layer=below
+
+# For sketchybar
+#yabai -m config external_bar all:33:0
 
 echo "yabai configuration loaded.."
