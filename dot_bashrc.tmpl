@@ -1,0 +1,13 @@
+source ~/.local/share/blesh/ble.sh
+eval "$(starship init bash)"
+eval "$(zoxide init bash)"
+
+alias j=just
+alias cd=z
+alias c=clear
+alias j=just
+alias g=git
+
+export SSH_AUTH_SOCK=/Users/volodia/.bitwarden-ssh-agent.sock
+export OPENROUTER_API_KEY="{{ (bitwarden "item" "OpenRouter key").login.password }}"
+export LC_ALL="C.UTF-8"
