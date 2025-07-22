@@ -8,7 +8,11 @@ alias cd=z
 alias c=clear
 alias j=just
 alias g=git
+alias gm='git commit -m'
+alias ls='ls --color=auto'
 
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH="$(brew --prefix python)/libexec/bin:$PATH"
 export SSH_AUTH_SOCK=/Users/volodia/.bitwarden-ssh-agent.sock
 export OPENROUTER_API_KEY="{{ (bitwarden "item" "OpenRouter key").login.password }}"
 export LC_ALL="C.UTF-8"

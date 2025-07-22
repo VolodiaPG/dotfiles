@@ -1,4 +1,25 @@
+Host *
+    IdentityFile ~/.ssh/id_ed25519
+    Compression yes
+    IgnoreUnknown UseKeychain
+
+Host access.grid5000.fr
+  User volparolguarino
+
+Host !access.grid5000.fr *.grid5000.fr
+   User volparolguarino
+   ProxyJump access.grid5000.fr
+   StrictHostKeyChecking no
+   UserKnownHostsFile /dev/null
+
 Host dell
+    AddKeysToAgent yes
+    Hostname dell
+    User volodia
+    ForwardAgent yes
+
+Host home-server
+    AddKeysToAgent yes
     Hostname dell
     User volodia
     ForwardAgent yes
