@@ -33,10 +33,10 @@ yabai -m config \
   split_ratio 0.50 \
   split_type auto \
   auto_balance off \
-  top_padding 5 \
-  bottom_padding 5 \
-  left_padding 5 \
-  right_padding 5 \
+  top_padding 0 \
+  bottom_padding 0 \
+  left_padding 0 \
+  right_padding 0 \
   window_gap 10 \
   layout bsp \
   mouse_modifier fn \
@@ -114,6 +114,6 @@ yabai -m signal --add app='^Ghostty$' event=window_destroyed action='yabai -m sp
 # yabai -m rule --add app="^${applications}$" manage=on layer=below
 
 # For sketchybar
-yabai -m config external_bar all:19:0
+#yabai -m config external_bar all:19:0
 
 echo "yabai configuration loaded.."
