@@ -23,3 +23,6 @@
         email = "volodia.parol-guarino@proton.me"
         name = "Volodia P.-G."
         signingKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGCpqTjWHv8bko3N+ypMJXcSBDPKtun7Ec7RHvtlC60V"
+
+[diff]
+        external = difft
