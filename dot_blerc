@@ -2,7 +2,8 @@
 #  source -- /opt/homebrew/etc/profile.d/bash_completion.sh
 #fi
 
-source /opt/homebrew/etc/profile.d/bash_completion.sh
+#source /opt/homebrew/etc/profile.d/bash_completion.sh
+source /etc/profile.d/bash_completion.sh
 
 ble-import -d integration/fzf-completion
 ble-import -d integration/fzf-key-bindings

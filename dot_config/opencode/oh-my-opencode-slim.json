@@ -1,0 +1,42 @@
+{
+  "preset": "custom",
+  "presets": {
+    "custom": {
+      "orchestrator": {
+        "model": "opencode/qwen3.6-plus",
+        "skills": ["*"],
+        "mcps": ["*"]
+      },
+      "oracle": {
+        "model": "opencode/kimi-k2.6",
+        "variant": "high",
+        "skills": ["simplify"],
+        "mcps": []
+      },
+      "librarian": {
+        "model": "opencode/qwen3.6-plus",
+        "variant": "low",
+        "skills": [],
+        "mcps": ["websearch", "context7", "grep_app"]
+      },
+      "explorer": {
+        "model": "opencode/qwen3.6-plus",
+        "variant": "low",
+        "skills": [],
+        "mcps": []
+      },
+      "designer": {
+        "model": "opencode/qwen3.6-plus",
+        "variant": "medium",
+        "skills": ["agent-browser"],
+        "mcps": []
+      },
+      "fixer": {
+        "model": "ollama/qwen-3.5",
+        "variant": "low",
+        "skills": [],
+        "mcps": []
+      }
+    }
+  }
+}

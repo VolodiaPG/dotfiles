@@ -1,5 +1,5 @@
-{{- if eq .chezmoi.os "darwin" -}}
 #!/bin/bash
+{{ if eq .chezmoi.os "darwin" }}
 
 
 # brew --head "volodiapg/formulae/yabai"
@@ -59,4 +59,24 @@ cask "jan"
 cask "drawio"
 cask "volodiapg/tap/helium-chromium"
 EOF
-{{ end -}}
+
+{{ else if eq .chezmoi.os "linux" }}
+
+paru -S zoxide\
+ direnv\
+ bash-completion\
+ kitty\
+ opencode\
+ tmux\
+ mosh\
+ tailscale\
+ docker\
+ htop\
+ difftastic\
+ lazygit\
+ orca-slicer-bin
+
+
+
+{{ end }}
+

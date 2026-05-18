@@ -9,13 +9,14 @@ alias gm='git commit -m'
 alias ls='ls --color=auto'
 alias ll='ls -la --color=auto'
 
-export PATH="/opt/homebrew/bin:$PATH"
-export PATH="$(brew --prefix python)/libexec/bin:$PATH"
-export SSH_AUTH_SOCK=/Users/volodia/.bitwarden-ssh-agent.sock
+#export PATH="/opt/homebrew/bin:$PATH"
+#export PATH="$(brew --prefix python)/libexec/bin:$PATH"
+#export SSH_AUTH_SOCK=/Users/volodia/.bitwarden-ssh-agent.sock
+export SSH_AUTH_SOCK=/home/volodia/.var/app/com.bitwarden.desktop/data/.bitwarden-ssh-agent.sock
+
+#export SSH_AUTH_SOCK=/home/volodia/.bitwarden-ssh-agent.sock
 export LC_ALL="C.UTF-8"
 
-export OPENROUTER_API_KEY="{{ (bitwarden "item" "OpenRouter key").login.password }}"
-export OPENAI_API_KEY="{{ (bitwarden "item" "OpenAI API key").login.password }}"
 
 # Save 5,000 lines of history in memory
 HISTSIZE=10000
