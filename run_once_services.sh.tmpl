@@ -1,0 +1,9 @@
+#!/bin/bash
+{{ if eq .chezmoi.os "darwin" }}
+
+{{ else if eq .chezmoi.os "linux" }}
+
+sudo systemctl enable --now tailscaled
+
+{{ end }}
+
