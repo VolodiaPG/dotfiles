@@ -62,7 +62,7 @@ EOF
 
 {{ else if eq .chezmoi.os "linux" }}
 
-paru -S zoxide\
+paru -S --needed zoxide\
  direnv\
  bash-completion\
  kitty\

@@ -1,4 +1,5 @@
 #!/bin/bash
+
 {{- if eq .chezmoi.os "darwin" -}}
 brew bundle --file=/dev/stdin <<EOF
 brew "nvim"
@@ -24,6 +25,6 @@ brew "shellharden"
 
 brew "air"
 EOF
-{{- else if eq .chezmoi.os "linux" -}}
+{{ else if eq .chezmoi.os "linux" }}
 sh ~/.config/nvim/install.sh
 {{ end -}}
