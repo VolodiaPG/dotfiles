@@ -25,4 +25,5 @@ brew "shellharden"
 brew "air"
 EOF
 {{- else if eq .chezmoi.os "linux" -}}
+sh ~/.config/nvim/install.sh
 {{ end -}}
