@@ -1,1 +1,6 @@
 export PATH=$PATH:~/.local/bin
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/volodia/.lmstudio/bin"
+# End of LM Studio CLI section
+

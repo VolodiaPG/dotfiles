@@ -4,6 +4,8 @@
 {{ else if eq .chezmoi.os "linux" }}
 
 sudo systemctl enable --now tailscaled
+sudo systemctl enable --now containerd
+sudo systemctl enable --now docker
 
 {{ end }}
 

@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+sudo groupdel plugdev 2>/dev/null
+sudo groupadd --system plugdev
+sudo usermod -aG plugdev $USER
+sudo tee /etc/udev/rules.d/90-hidraw-permissions.rules > /dev/null <<EOF
+KERNEL=="hidraw*", SUBSYSTEM=="hidraw", MODE="0664", GROUP="plugdev"
+KERNEL=="tty*", SUBSYSTEM=="tty", MODE="0664", GROUP="plugdev"
+EOF
+
+sudo udevadm control --reload-rules
+sudo udevadm trigger

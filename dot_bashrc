@@ -76,3 +76,8 @@ export PROMPT_COMMAND=__set_prompt
 eval "$(zoxide init bash)"
 eval "$(direnv hook bash)"
 
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/volodia/.lmstudio/bin"
+# End of LM Studio CLI section
+

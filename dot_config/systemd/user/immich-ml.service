@@ -1,0 +1,15 @@
+[Unit]
+Description=Immich ML (remote) service for Immich
+PartOf=docker.socket
+
+[Service]
+TimeoutStartSec=0
+ExecStartPre=/usr/bin/docker compose -f /home/volodia/.config/immich-ml/docker-compose.yml pull
+ExecStart=/usr/bin/docker compose -f /home/volodia/.config/immich-ml/docker-compose.yml run --rm --name immich-machine-learning immich-machine-learning
+Restart=always
+RestartSec=10s
+Type=simple
+
+[Install]
+WantedBy=default.target
+

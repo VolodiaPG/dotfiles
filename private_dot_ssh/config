@@ -24,3 +24,8 @@ Host home-server
     AddKeysToAgent yes
     User volodia
     ForwardAgent yes
+
+Host storagebox
+    Hostname u593939.your-storagebox.de
+    Port 23
+    User u593939-sub1
