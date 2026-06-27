@@ -3,7 +3,8 @@
   "plugin": [
     "@simonwjackson/opencode-direnv@latest",
     "@tarquinen/opencode-dcp@latest",
-    "oh-my-opencode-slim@latest"
+    "/home/volodia/.config/opencode/ponytail/.opencode/plugins/ponytail.mjs",
+    "oh-my-opencode-slim"
   ],
   "provider": {
     "lmstudio": {
@@ -18,5 +19,14 @@
         }
       }
     }
-  }
+  },
+  "agent": {
+    "explore": {
+      "disable": true
+    },
+    "general": {
+      "disable": true
+    }
+  },
+  "lsp": true
 }

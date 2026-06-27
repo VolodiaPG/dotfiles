@@ -81,3 +81,7 @@ eval "$(direnv hook bash)"
 export PATH="$PATH:/home/volodia/.lmstudio/bin"
 # End of LM Studio CLI section
 
+
+# >>> oh-my-opencode-slim background subagents >>>
+export OPENCODE_EXPERIMENTAL_BACKGROUND_SUBAGENTS=true
+# <<< oh-my-opencode-slim background subagents <<<
