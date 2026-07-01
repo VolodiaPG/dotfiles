@@ -1,0 +1,3 @@
+include:
+  - ./syncthing/docker-compose.yml
+  - ./immich-ml/docker-compose.yml
