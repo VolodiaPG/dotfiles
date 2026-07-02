@@ -1,0 +1,19 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "gicalucejo@gmail.com",
+                "Name": "jomada"
+            }
+        ],
+        "Category": "",
+        "Description": "Itchy for Plasma",
+        "EnabledByDefault": true,
+        "Id": "Itchy",
+        "License": "LGPL",
+        "Name": "Itchy",
+        "Version": "1.7",
+        "Website": "https://seduccionlinux.wordpress.com"
+    },
+    "X-Plasma-API": "5.0"
+}
