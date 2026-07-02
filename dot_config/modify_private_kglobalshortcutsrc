@@ -2,8 +2,6 @@
 
 source auto
 
-# Add your ignores and transforms here
-#ignore section "my-section"
-#ignore "exact section name without brackets" "exact key name"
-#ignore regex "section.*" "key_prefix_.*"
-#transform "section" "key" transform_name read="the docs" for="more detail on transforms"
+# ponytail: ignore machine-specific keys (activity UUIDs, Chromium auto-generated extension shortcuts)
+ignore regex "ActivityManager" "switch-to-activity-.*"
+ignore section "org.chromium.Chromium"
