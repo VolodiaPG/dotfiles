@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+cpupower frequency-set -g conservative
+echo 2 >/sys/devices/system/cpu/cpufreq/conservative/sampling_down_factor
+echo 75 >/sys/devices/system/cpu/cpufreq/conservative/up_threshold
+echo 10 >/sys/devices/system/cpu/cpufreq/conservative/down_threshold
+echo 10 >/sys/devices/system/cpu/cpufreq/conservative/freq_step
+echo 1 >/sys/devices/system/cpu/cpufreq/conservative/ignore_nice_load

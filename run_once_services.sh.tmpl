@@ -7,5 +7,23 @@ sudo systemctl enable --now tailscaled
 sudo systemctl enable --now containerd
 sudo systemctl enable --now docker
 
+# ponytail: oneshot, not a daemon — nvidia-smi -lmc/-lgc set persistent clock locks that survive until reboot, so run once per boot is enough.
+cat <<'UNIT' | sudo tee /etc/systemd/system/nvidia-clock-lock.service >/dev/null
+[Unit]
+Description=Lock NVIDIA GPU memory and graphics clocks
+After=systemd-modules-load.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/nvidia-smi -lmc 1620,21002
+ExecStart=/usr/bin/nvidia-smi -lgc 210,3105
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
+UNIT
+sudo systemctl daemon-reload
+sudo systemctl enable --now nvidia-clock-lock.service
+
 {{ end }}
 

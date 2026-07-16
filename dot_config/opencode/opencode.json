@@ -4,7 +4,7 @@
     "@simonwjackson/opencode-direnv@latest",
     "@tarquinen/opencode-dcp@latest",
     "/home/volodia/.config/opencode/ponytail/.opencode/plugins/ponytail.mjs",
-    "oh-my-opencode-slim",
+    "oh-my-opencode-slim@latest",
     "@plannotator/opencode@latest"
   ],
   "provider": {

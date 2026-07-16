@@ -1,8 +1,8 @@
 [2fbba2c5-024a-48c8-92c4-bad4f901655e]
-Description=Helium desktop 1
+Description=Browser desktop 1
 desktops=7611e3c2-0e9e-419c-9837-d6a50fd80067
 desktopsrule=3
-wmclass=helium
+wmclass=brave
 wmclassmatch=1
 
 [446f60cb-fae1-46f0-b066-0d2a3256ad03]
@@ -24,21 +24,32 @@ titlematch=1
 wmclass=helium
 
 [5e4f9c05-d43b-4cef-8c9f-f58fd8b9cf16]
-Description=Zed desktop 2
-desktops=a7f774bd-f030-49ab-95ca-41477652d6f5
+Description=Zed desktop 3
+desktops=8169dae0-0982-44b8-bcbd-8d40e80ffeff
 desktopsrule=3
 wmclass=zed
 wmclassmatch=1
 
 [6b7e536e-2be1-4548-b707-f886d73c14ac]
-Description=Proton mail desktop 3
-desktops=8169dae0-0982-44b8-bcbd-8d40e80ffeff
+Description=Proton mail desktop 5
+desktops=4e22e3bf-a99c-4541-9ef0-23cdcebb54c3
 desktopsrule=3
 excludefromcapture=true
 excludefromcapturerule=2
 title=Proton Mail
 titlematch=2
-wmclass=chrome-
+wmclass=brave-
+wmclassmatch=2
+
+[776ed518-2e42-4f12-ad69-f69960493dbc]
+Description=Home assistant desktop 5
+desktops=4e22e3bf-a99c-4541-9ef0-23cdcebb54c3
+desktopsrule=3
+excludefromcapture=true
+excludefromcapturerule=2
+title=Home Assistant
+titlematch=2
+wmclass=brave-
 wmclassmatch=2
 
 [984d66e5-06c2-434b-a6ac-8b62a9b071ac]
@@ -56,18 +67,18 @@ wmclass=plasmashell
 wmclassmatch=1
 
 [General]
-count=9
-rules=446f60cb-fae1-46f0-b066-0d2a3256ad03,2fbba2c5-024a-48c8-92c4-bad4f901655e,6b7e536e-2be1-4548-b707-f886d73c14ac,b3ee36f8-0b88-4042-8056-aaecb0eb3bd7,5e4f9c05-d43b-4cef-8c9f-f58fd8b9cf16,daa29798-6fc5-4b65-82af-0f325ef4a219,fd3bf08b-175f-4edf-a64d-9e9e5033fff6,984d66e5-06c2-434b-a6ac-8b62a9b071ac,998395a1-4a7a-4ebe-b96e-b2dd4a47a065
+count=10
+rules=446f60cb-fae1-46f0-b066-0d2a3256ad03,2fbba2c5-024a-48c8-92c4-bad4f901655e,6b7e536e-2be1-4548-b707-f886d73c14ac,b3ee36f8-0b88-4042-8056-aaecb0eb3bd7,776ed518-2e42-4f12-ad69-f69960493dbc,5e4f9c05-d43b-4cef-8c9f-f58fd8b9cf16,daa29798-6fc5-4b65-82af-0f325ef4a219,fd3bf08b-175f-4edf-a64d-9e9e5033fff6,984d66e5-06c2-434b-a6ac-8b62a9b071ac,998395a1-4a7a-4ebe-b96e-b2dd4a47a065
 
 [b3ee36f8-0b88-4042-8056-aaecb0eb3bd7]
-Description=Fizzy desktop 3
-desktops=8169dae0-0982-44b8-bcbd-8d40e80ffeff
+Description=Fizzy desktop 5
+desktops=4e22e3bf-a99c-4541-9ef0-23cdcebb54c3
 desktopsrule=3
 excludefromcapture=true
 excludefromcapturerule=2
 title=Fizzy
 titlematch=2
-wmclass=chrome-
+wmclass=brave-
 wmclassmatch=2
 
 [daa29798-6fc5-4b65-82af-0f325ef4a219]
